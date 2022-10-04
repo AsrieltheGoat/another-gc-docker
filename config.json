@@ -8,11 +8,11 @@
   },
   "databaseInfo": {
     "server": {
-      "connectionUri": "mongodb://root:pass@mongo:27017",
+      "connectionUri": "mongodb://172.17.0.2:27017",
       "collection": "grasscutter"
     },
     "game": {
-      "connectionUri": "mongodb://root:pass@mongo:27017",
+      "connectionUri": "mongodb://172.17.0.2:27017",
       "collection": "grasscutter"
     }
   },
