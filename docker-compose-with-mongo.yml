@@ -6,9 +6,9 @@ services:
     restart: always
     ports:
       - 27017:27017
-    environment:
-      MONGO_INITDB_ROOT_USERNAME: root
-      MONGO_INITDB_ROOT_PASSWORD: pass
+      #environment:
+      #MONGO_INITDB_ROOT_USERNAME: root
+      #MONGO_INITDB_ROOT_PASSWORD: pass
 
   grasscutter:
     build: ./server
@@ -24,4 +24,4 @@ services:
       - ./config.json:/root/grass/config.json
       - ./boot.sh:/root/grass/boot.sh
       - ./keystore.p12:/root/grass/keystore.p12
-    command: ["/bin/sh", "-c", "/root/grass/boot.sh"]
+    command: [ "/bin/sh", "-c", "/root/grass/boot.sh" ]

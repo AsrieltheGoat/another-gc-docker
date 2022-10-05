@@ -8,11 +8,11 @@
   },
   "databaseInfo": {
     "server": {
-      "connectionUri": "mongodb://172.17.0.2:27017",
+      "connectionUri": "mongodb://root:changethisnow69asrielwarnuaboutthis420teriteri@mongo:27017",
       "collection": "grasscutter"
     },
     "game": {
-      "connectionUri": "mongodb://172.17.0.2:27017",
+      "connectionUri": "mongodb://root:changethisnow69asrielwarnuaboutthis420teriteri@mongo:27017",
       "collection": "grasscutter"
     }
   },
@@ -22,18 +22,21 @@
     "document": "EN"
   },
   "account": {
-    "autoCreate": false,
-    "EXPERIMENTAL_RealPassword": true,
-    "defaultPermissions": [],
+    "autoCreate": true,
+    "EXPERIMENTAL_RealPassword": false,
+    "defaultPermissions": [
+      ""
+    ],
     "maxPlayer": -1
   },
   "server": {
     "debugWhitelist": [],
     "debugBlacklist": [],
     "runMode": "HYBRID",
+    "logCommands": false,
     "http": {
       "bindAddress": "0.0.0.0",
-      "bindPort": 443,
+      "bindPort": 80,
       "accessAddress": "127.0.0.1",
       "accessPort": 0,
       "encryption": {
@@ -51,8 +54,8 @@
         }
       },
       "files": {
-        "indexFile": "./index.html",
-        "errorFile": "./404.html"
+        "indexFile": "./web/index.html",
+        "errorFile": "./web/404.html"
       }
     },
     "game": {
@@ -61,10 +64,10 @@
       "accessAddress": "127.0.0.1",
       "accessPort": 0,
       "loadEntitiesForPlayerRange": 100,
-      "enableScriptInBigWorld": true,
+      "enableScriptInBigWorld": false,
       "enableConsole": true,
       "kcpInterval": 20,
-      "logPackets": "ALL",
+      "logPackets": "NONE",
       "gameOptions": {
         "inventoryLimits": {
           "weapons": 2000,
@@ -84,14 +87,14 @@
         "energyUsage": true,
         "fishhookTeleport": true,
         "resinOptions": {
-          "resinUsage": true,
+          "resinUsage": false,
           "cap": 160,
           "rechargeTime": 480
         },
         "rates": {
-          "adventureExp": 1,
-          "mora": 1,
-          "leyLines": 1
+          "adventureExp": 1.0,
+          "mora": 1.0,
+          "leyLines": 1.0
         }
       },
       "joinOptions": {
@@ -100,11 +103,11 @@
           1002,
           4010
         ],
-        "welcomeMessage": "Welcome to a Grasscutter server.",
+        "welcomeMessage": "Wait, how did you get here",
         "welcomeMail": {
-          "title": "Welcome to Grasscutter!",
-          "content": "Hi there!\r\nFirst of all, welcome to Grasscutter. If you have any issues, please let us know so that Lawnmower can help you! \r\n\r\nCheck out our:\r\n<type=\"browser\" text=\"Discord\" href=\"https://discord.gg/T5vZU6UyeG\"/>\n",
-          "sender": "Lawnmower",
+          "title": "Asriel's greeting letter",
+          "content": "Hi there!\r\nFirst of all, welcome to Grasscutter. If you have any issues, please let us know so that Lawnmower can help you! \r\n\r\nCheck out our:\r\n\u003ctype\u003d\"browser\" text\u003d\"Discord\" href\u003d\"https://discord.gg/T5vZU6UyeG\"/\u003e\n",
+          "sender": "Asriel",
           "items": [
             {
               "itemId": 13509,
@@ -115,17 +118,37 @@
               "itemId": 201,
               "itemCount": 99999,
               "itemLevel": 1
+            },
+            {
+              "itemId": 202,
+              "itemCount": 99999,
+              "itemLevel": 1
+            },
+            {
+              "itemId": 101,
+              "itemCount": 1200000,
+              "itemLevel": 1
+            },
+            {
+              "itemId": 1046,
+              "itemCount": 1,
+              "itemLevel": 90
+            },
+            {
+              "itemId": 13501,
+              "itemCount": 1,
+              "itemLevel": 90
             }
           ]
         }
       },
       "serverAccount": {
-        "avatarId": 10000007,
-        "nameCardId": 210001,
-        "adventureRank": 1,
-        "worldLevel": 0,
-        "nickName": "Server",
-        "signature": "Welcome to Grasscutter!"
+        "avatarId": 10000046,
+        "nameCardId": 210004,
+        "adventureRank": 57,
+        "worldLevel": 8,
+        "nickName": "Asriel",
+        "signature": "Hi!"
       }
     },
     "dispatch": {
