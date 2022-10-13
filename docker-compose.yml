@@ -12,7 +12,7 @@ services:
     image: mongo-express
     restart: always
     ports:
-      - 8081:8081
+      - 8081:8081/tcp
     environment:
       ME_CONFIG_MONGODB_ADMINUSERNAME: root
       ME_CONFIG_MONGODB_ADMINPASSWORD: changethisnow69asrielwarnuaboutthis420teriteri
@@ -23,10 +23,10 @@ services:
     stdin_open: true
     tty: true
     ports:
-      - 80:80
-      - 443:443
-      - 8888:8888
-      - 22102:22102
+      - 80:80/tcp
+      - 443:443/tcp
+      - 8888:8888/tcp
+      - 22102:22102/udp
     volumes:
       - ./data:/root/grass/data
       - ./web:/root/grass/web
