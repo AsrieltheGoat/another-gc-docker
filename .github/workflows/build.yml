@@ -13,6 +13,9 @@ env:
 jobs:
   buildx:
     runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: ./server
     steps:
       - name: Checkout
         uses: actions/checkout@v3
@@ -44,7 +47,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: .
-          file: ./server/dockerfile-gha
+          file: ./dockerfile
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: ${{ env.REGISTRY_GHCR }}/${{ steps.meta.outputs.tags }}
