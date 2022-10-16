@@ -21,8 +21,8 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:changethisnow69asrielwarnuaboutthis420teriteri@mongo:27017/
 
   grasscutter:
-    build: ./server
-    # image: ghcr.io/joshua-noakes1/gc-docker-ubuntu # Change for final commit
+    # build: ./server
+    image: testgc
     stdin_open: true
     tty: true
     ports:
