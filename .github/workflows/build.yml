@@ -44,7 +44,7 @@ jobs:
         uses: docker/build-push-action@v3
         with:
           context: ./server
-          file: ./dockerfile
+          file: dockerfile
           platforms: linux/amd64,linux/arm64,linux/arm/v7
           push: true
           tags: ${{ env.REGISTRY_GHCR }}/${{ steps.meta.outputs.tags }}
