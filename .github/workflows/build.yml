@@ -9,6 +9,7 @@ on:
       - '**/**.md'
       - '**/**.yml'    
       - '**/**.json'
+      - '!**/build.yml'
 env:
   REGISTRY_GHCR: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
