@@ -1,0 +1,3 @@
+# Ignore plugins 
+plugins/*
+!plguins/.gitkeep
