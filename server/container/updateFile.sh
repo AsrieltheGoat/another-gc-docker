@@ -1,3 +1,4 @@
+#!/bin/ash
 echo "Downloading latest version of grasscutter..."
 
 # Check for API connectivity and rate limit
@@ -16,19 +17,16 @@ fi
 
 curlRes=$(curl -s "https://api.github.com/repos/Grasscutters/Grasscutter/releases/latest" | jq -r '.assets[0].browser_download_url')
 
-# Check if curlRes string has the word "jar" in in
-if [[ $curlRes != *"jar"* ]]; then
-    if [ "$CONTAINER" = "true" ]; then
-        echo "Failed to download latest version of grasscutter, using older version if it exists!"
-        exit 0
-    else
-        exit 1
-    fi
-fi
-
 # Download latest release
 echo "Latest release: $curlRes"
-cd ./grass
+cd /root/grass
 rm -rf ./grasscutter*.*jar
-wget -q $curlRes || echo "Failed to download latest release, using older version if it exists!"
-echo "Downloaded latest version of grasscutter!"
+{
+    wget -q $curlRes &
+    wait
+    echo "Downloaded latest version of grasscutter!"
+    exit 0
+} || {
+    echo "Failed to download latest version of grasscutter!"
+    exit 1
+}

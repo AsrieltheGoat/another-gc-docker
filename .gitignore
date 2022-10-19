@@ -2,3 +2,4 @@
 mongodb-data/*
 plugins/*
 !plguins/.gitkeep
+*.jar

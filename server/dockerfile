@@ -1,13 +1,20 @@
+# Setup Container
 FROM alpine:latest
-COPY ./build/setup.sh /root/setup.sh
+COPY ./build/downloadResources.sh /root/downloadResources.sh
 COPY ./container/boot.sh /root/boot.sh
-COPY ./container/update.sh /root/update.sh
+COPY ./container/updateFile.sh /root/updateFile.sh
 WORKDIR /root
 ENV GC_RELEASE="https://api.github.com/repos/Grasscutters/Grasscutter/releases/"
-ENV GC_RES_REPO="https://gitlab.com/yukiz/GrasscutterResources.git"
+# ENV GC_RES_REPO="https://github.com/Koko-boya/Grasscutter_Resources.git"
+ENV GC_RES_REPO="https://gitlab.com/yukiz/GrasscutterResources.git" 
+# ^^ Has better support for 3.x+ content but take like twice as long to download because gitlab^^
+# Install and Update Grasscutter
 RUN apk update
-RUN apk add --no-cache git curl wget openjdk17-jre-headless
+RUN apk add --no-cache git curl wget openjdk17-jre-headless jq
 RUN mkdir -p /root/grass
-RUN chmod +x /root/update.sh
-RUN ./update.sh
+RUN chmod +x /root/updateFile.sh
+RUN chmod +x /root/downloadResources.sh
+RUN ./updateFile.sh
+RUN ./downloadResources.sh
+# Start Grasscutter
 ENTRYPOINT [ "/bin/sh", "/root/boot.sh" ]

@@ -24,7 +24,7 @@ services:
 
   grasscutter:
     # image: ghcr.io/joshua-noakes1/grasscutters-docker
-    image: test-image
+    image: gcdockerubuntu
     container_name: grasscutter
     stdin_open: true
     tty: true
