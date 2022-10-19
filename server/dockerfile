@@ -1,6 +1,8 @@
 FROM ubuntu:latest
 COPY ./setup.sh /root/setup.sh
+COPY ./boot.sh /root/boot.sh
 WORKDIR /root
 ENV GC_RELEASE="https://api.github.com/repos/Grasscutters/Grasscutter/releases/latest"
 ENV GC_RES_REPO="https://github.com/Koko-boya/Grasscutter_Resources.git"
 RUN ./setup.sh
+ENTRYPOINT [ "/bin/sh", "/root/boot.sh" ]
