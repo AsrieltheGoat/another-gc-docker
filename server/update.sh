@@ -1,18 +1,18 @@
-#!/bin/ash
+#!/bin/sh
 echo "Downloading latest version of grasscutter..."
-GC_RELEASE=https://api.github.com/repos/Grasscutters/Grasscutter/releases/
-curlRes=$(curl -s $GC_RELEASE/latset)
 
-# Check for curl error and for ""https://docs.github.com/rest/overview/resources-in-the-rest-api#rate-limiting""
-if [[ $curlRes == *"API rate limit exceeded"* ]]; then
+# Check for API connectivity and rate limit
+
+if [ $(curl -s https://api.github.com/rate_limit | jq -r '.rate.remaining') -lt 1 ]; then
     # get the number which is at x-ratelimit-reset then pass to date to get date, sed after the first space in the string
-    resetTime=$(curl -sI $GC_RELEASE/latset | grep "x-ratelimit-reset:" | sed 's/[^ ]* //')
+    resetTime=$(curl -s "https://api.github.com/rate_limit" | jq -r '.rate.reset')
     echo "GitHub API rate limit exceeded, please wait till $(date -d @$resetTime)"
     exit 1
 fi
 
-
-
+# curlRes=$(curl -s "$GC_RELEASE/latset" | $jq -r '.assets[0].browser_download_url')
+curlRes=$(curl -s "https://api.github.com/repos/Grasscutters/Grasscutter/releases/latest" | jq -r '.assets[0].browser_download_url')
+echo $($curlRes)
 
 # URL=$(curl -s $GC_RELEASE/latset | grep grasscutter*.*jar | cut -d '"' -f 4 | sed 's/[^ ]* //' || TESTURL="false")
 
