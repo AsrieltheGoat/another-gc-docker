@@ -1,8 +1,13 @@
 FROM alpine:latest
-COPY ./setup.sh /root/setup.sh
-COPY ./boot.sh /root/boot.sh
+COPY ./build/setup.sh /root/setup.sh
+COPY ./container/boot.sh /root/boot.sh
+COPY ./container/update.sh /root/update.sh
 WORKDIR /root
 ENV GC_RELEASE="https://api.github.com/repos/Grasscutters/Grasscutter/releases/"
 ENV GC_RES_REPO="https://gitlab.com/yukiz/GrasscutterResources.git"
-RUN ./setup.sh
+RUN apk update
+RUN apk add --no-cache git curl wget openjdk17-jre-headless
+RUN mkdir -p /root/grass
+RUN chmod +x /root/update.sh
+RUN ./update.sh
 ENTRYPOINT [ "/bin/sh", "/root/boot.sh" ]
