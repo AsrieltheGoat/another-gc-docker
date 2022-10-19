@@ -1,5 +1,10 @@
 # Setup Container
 FROM alpine:latest
+
+LABEL org.opencontainers.image.titke "Grasscutter-Docker"
+LABEL org.opencontainers.image.description "GC Docker is a docker container for dealing with Grasscutter"
+
+
 COPY ./build/downloadResources.sh /root/downloadResources.sh
 COPY ./container/boot.sh /root/boot.sh
 COPY ./container/updateFile.sh /root/updateFile.sh
