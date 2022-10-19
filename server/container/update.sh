@@ -7,12 +7,21 @@ if [ $(curl -s https://api.github.com/rate_limit | jq -r '.rate.remaining') -lt 
     # get the number which is at x-ratelimit-reset then pass to date to get date, sed after the first space in the string
     resetTime=$(curl -s "https://api.github.com/rate_limit" | jq -r '.rate.reset')
     echo "GitHub API rate limit exceeded, please wait till $(date -d @$resetTime)"
-    exit 1
+
+    if [ "$CONTAINER" = "true" ]; then
+        echo "Skipping download of latest version of grasscutter..., Restart the container to try again"
+        exit 0
+    else 
+        exit 1
+    fi
 fi
 
 # curlRes=$(curl -s "$GC_RELEASE/latset" | $jq -r '.assets[0].browser_download_url')
 curlRes=$(curl -s "https://api.github.com/repos/Grasscutters/Grasscutter/releases/latest" | jq -r '.assets[0].browser_download_url')
-echo $($curlRes)
+echo "Latest release: $curlRes"
+wget -qi - $curlRes || echo "Failed to download latest release, using older version if it exists!"
+echo "Downloaded latest version of grasscutter!"
+
 
 # URL=$(curl -s $GC_RELEASE/latset | grep grasscutter*.*jar | cut -d '"' -f 4 | sed 's/[^ ]* //' || TESTURL="false")
 
