@@ -1,12 +1,12 @@
 #!/bin/sh
-apt update
-#apt upgrade
-apt install git curl wget openjdk-17-jre -y
-mkdir ./grass
+apk update
+#apk add
+apk add --no-cache git curl wget openjdk17-jre-headless
+mkdir -p ./grass
 cd ./grass
 rm -rf ./grasscutter*.*jar
 curl -s $GC_RELEASE | grep grasscutter*.*jar | cut -d '"' -f 4 | wget -qi -
-mkdir ../res-repo
+mkdir -p ../res-repo
 cd ../res-repo
 git clone $GC_RES_REPO
 cd ../grass

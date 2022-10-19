@@ -23,7 +23,8 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:changethisnow69asrielwarnuaboutthis420teriteri@mongo:27017/
 
   grasscutter:
-    image: ghcr.io/joshua-noakes1/grasscutters-docker
+    # image: ghcr.io/joshua-noakes1/grasscutters-docker
+    image: test-image
     container_name: grasscutter
     stdin_open: true
     tty: true
