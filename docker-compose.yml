@@ -3,17 +3,13 @@ version: '3.8'
 services:
   mongo:
     image: mongo
-    container_name: mongodb
     restart: always
     environment:
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: changethisnow69asrielwarnuaboutthis420teriteri
-    volumes:
-      - ./mongodb-data:/data/db
 
   mongo-express:
     image: mongo-express
-    container_name: mongo-express
     restart: always
     ports:
       - 8081:8081/tcp
@@ -23,8 +19,7 @@ services:
       ME_CONFIG_MONGODB_URL: mongodb://root:changethisnow69asrielwarnuaboutthis420teriteri@mongo:27017/
 
   grasscutter:
-    image: ghcr.io/joshua-noakes1/grasscutters-docker
-    container_name: grasscutter
+    build: ./server
     stdin_open: true
     tty: true
     ports:
@@ -37,4 +32,6 @@ services:
       - ./web:/root/grass/web
       - ./plugins:/root/grass/plugins
       - ./config.json:/root/grass/config.json
+      - ./boot.sh:/root/grass/boot.sh
       - ./keystore.p12:/root/grass/keystore.p12
+    command: [ "/bin/sh", "-c", "/root/grass/boot.sh" ]

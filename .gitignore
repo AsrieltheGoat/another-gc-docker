@@ -1,4 +1,0 @@
-# Ignore plugins and mongo
-mongodb-data/*
-plugins/*
-!plguins/.gitkeep

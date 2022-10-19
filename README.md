@@ -23,7 +23,6 @@ docker-compose up -d
 * `./plugins` - Grasscutter plugins
 * `./config.json` - Grasscutter configure
 * `./keystore.p12` - Grasscutter certificate
-* `./mongodb-data` - MongoDB data
 
 ## Acknowledgments
 
