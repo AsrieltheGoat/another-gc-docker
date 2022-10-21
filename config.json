@@ -64,7 +64,7 @@
       "accessAddress": "127.0.0.1",
       "accessPort": 0,
       "loadEntitiesForPlayerRange": 100,
-      "enableScriptInBigWorld": false,
+      "enableScriptInBigWorld": true,
       "enableConsole": true,
       "kcpInterval": 20,
       "logPackets": "NONE",

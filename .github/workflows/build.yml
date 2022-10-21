@@ -51,9 +51,9 @@ jobs:
       - name: Build and Push
         uses: docker/build-push-action@v3
         with:
-          context: ./server/alpine
-          file: ./server/alpine/dockerfile
-          platforms: linux/amd64,linux/arm64,linux/arm/v7
+          context: ./server
+          file: ./server/dockerfile
+          platforms: linux/amd64,linux/arm64
           push: true
           tags: |
             ${{ env.REGISTRY_GHCR }}/${{ steps.meta-latest.outputs.tags }}
