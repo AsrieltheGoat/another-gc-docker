@@ -1,0 +1,8 @@
+{
+    "name": "GC Heroku",
+    "description": "remove later",
+    "keywords": ["V2Ray"],
+    "website": "https://github.com/AsrieltheGoat/gc-docker-ubuntu/",
+    "repository": "https://github.com/AsrieltheGoat/gc-docker-ubuntu/",
+    "stack": "container"
+}
