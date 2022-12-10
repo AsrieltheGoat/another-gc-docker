@@ -9,10 +9,10 @@ COPY ./container/boot.sh /root/boot.sh
 COPY ./container/updateFile.sh /root/updateFile.sh
 WORKDIR /root
 ENV GC_RELEASE="https://api.github.com/repos/Grasscutters/Grasscutter/releases/"
-ENV GC_RES_REPO="https://github.com/Koko-boya/Grasscutter_Resources.git"
+ENV GC_RES_REPO="https://git.crepe.moe/grasscutters/Grasscutter_Resources.git"
 
 ENV GC_RES_REPO_ALT="https://gitlab.com/yukiz/GrasscutterResources.git"
-ENV USE_ALT_RES_REPO="true"
+ENV USE_ALT_RES_REPO="false"
 # ^^ Has better support for 3.x+ content but take like twice as long to download because gitlab^^
 
 # Install and Update Grasscutter
