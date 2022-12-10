@@ -40,6 +40,6 @@ docker attach grasscutter
 ### People you want to thank
 
 - [Grasscutter](https://github.com/Grasscutters/Grasscutter/)
-- [Grasscutter resource](https://github.com/tamilpp25/Grasscutter_Resources)
+- [Grasscutter resource](https://git.crepe.moe/grasscutters/Grasscutter_Resources)
 - [Grasscutter resource (alternate)](https://gitlab.com/yukiz/GrasscutterResources.git)
 - My brain
